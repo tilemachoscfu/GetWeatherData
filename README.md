@@ -3,8 +3,11 @@ Weather Data Retrieval Script
 This Python script fetches weather data for a specific location using the WeatherAPI.com API through RapidAPI. It displays the temperature, weather description, and UV index for the provided location. If the UV index is high (8 or above), it will display a warning message advising the user to take precautions.
 
 Prerequisites
+
 Python 3.x
+
 requests library
+
 You need Python 3.x installed on your machine to run this script. If you don't have it, you can download it from the official Python website: https://www.python.org/downloads/
 
 To install the required requests library, run the following command:
