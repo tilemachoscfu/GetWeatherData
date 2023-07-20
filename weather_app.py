@@ -12,13 +12,19 @@ def get_weather_data(location):
 
 def main():
     user_location = input("Enter the location (city name, country): ")
-    weather_data = get_weather_data(user_location)
+    user_temp_unit = input("Enter preffered temperature unit (C fot Celsius, F for Fahrenheit): ")
+
+    if user_temp_unit.upper() not in ("C", "F"):
+        print("Invalid temperature unit, Defaulting to Celsius (°C)")
+        user_temp_unit = "C"
+        
+    weather_data = get_weather_data(user_location, user_temp_unit)
 
     if 'error' in weather_data:
         print("Error:", weather_data['error']['message'])
     else:
         print(f"Weather in {weather_data['location']['name']}, {weather_data['location']['country']}:")
-        print(f"Temperature: {weather_data['current']['temp_c']} °C")
+        print(f"Temperature: {weather_data['current']['temp_c']} °C") if user_temp_unit.upper() == "C" else f"Temperature: {weather_data['current']['temp_f']} °F)
         print(f"Description: {weather_data['current']['condition']['text']}")
 
         uv_index = weather_data['current']['uv']
